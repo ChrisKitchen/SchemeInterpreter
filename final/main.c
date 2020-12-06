@@ -1,1 +1,16 @@
-/*this is a simple scheme interpreter that I was working on for class last year, unfortunately (due to covid interupting class) I was unable to finish the final project, but you can still see a lot of the work that went into this*/
+#include <stdio.h>
+#include "tokenizer.h"
+#include "value.h"
+#include "linkedlist.h"
+#include "parser.h"
+#include "talloc.h"
+#include "interpreter.h"
+
+int main() {
+   Value *list = tokenize(stdin);
+   Value *tree = parse(list);
+   interpret(tree);
+
+   tfree();
+   return 0;
+}
